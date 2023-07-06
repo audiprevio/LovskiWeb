@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inconsolata', monospace;
+            background-color: #fafafa;
+        }
+        .hero > img {
+            filter: brightness(45%);
+        }
+
+        .primarycta {
+            border: none;
+            text-decoration: underline;
+            background-color: transparent;
+            font-family: 'INCONSOLATA';
+            font-weight: bold;
+            margin: 0;
+            padding: 0;
+            font-size: 1.25rem;
+        }
+        ul {
+            display: flex;
+            justify-content: center;
+            text-decoration: none;
+            list-style-type: none;
+            align-items: center;
+            color: #121212;
+            gap: 2rem;
+            padding-inline-start: 0;
+        }
+        .Navbar {
+            overflow: hidden;
+            background-color: #fafafa;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            width: 100vw;
+            z-index: 1000;
+        }
+        ul > .signupbtn {
+            border-radius: 8px;
+            padding-top: 0.5rem;
+            padding-left: 0.75rem;
+            padding-right: 0.75rem;
+            color: #0F111A;
+            padding-bottom: 0.5rem;
+        }
+        ul > .home {
+            font-weight: 700;
+            font-family: Consolas;
+        }
+        .hero {
+            width: 100%;
+            height: 100vh; /* Full viewport height */
+            overflow: hidden; /* Hide the parts that are outside the container */
+        }
+        .hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Cover the entire container */
+        }
+        .mainbody {
+            background-color: #fafafa;
+        }
+        .mainbody-special {
+            background-color: #dfeaff;
+        }
+        .herotext {
+            position: absolute;
+            top: 50%; /* Adjust these values to position the text where you want it */
+            left: 50%;
+            transform: translate(-50%, -50%); /* This centers the text in the middle of the hero section */
+            color: white; /* Change the color as needed */
+            text-align: center;
+            font-size: 8vh;
+        }
+
+        .primarycta:hover {
+            text-decoration: underline;
+            cursor: pointer;
+            color: #5d1180;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            cursor: pointer;
+            color: #5d1180;
+        }
+        
+        .tablelink:hover {
+            text-decoration: underline;
+            cursor: pointer;
+            color: #5d1180;
+        }
+
+        .textwrapper {
+            width: 90vw;
+            padding: 4vw 4vw 4vw 4vw;
+        }
+        .dividersolid {
+            width: 90vw;
+        }
+        .bodytexty {
+            line-height: 1.5rem;
+            max-width: 60vw;
+        }
+                /* media query for h1 make it wider 90vw and taller 9vh */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 2rem;
+        }
+        td {
+            align-content: center;
+        }
+        th {
+            color: #121212;
+            padding-bottom: 1.5rem;
+        }
+        table img {
+            width: 20px; /* Adjust as needed */
+            height: 20px; /* Adjust as needed */
+            margin-right: 5px;
+            align-content: center;
+            border-radius: 900px;
+        }
+        .h1class {
+            width: 45vw;
+            line-height: 4vh;   
+            word-wrap: break-word;
+        }
+        .h1big {
+            width: 45vw;
+            line-height: 4vh;   
+            word-wrap: break-word;
+            font-size: 36px;
+            margin: 0;
+        }
+        /* media query for h1 make it wider 90vw and taller 9vh */
+        .footer {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            padding: 2rem;
+            background-color: #0F111A; /* Adjust to your preferred background color */
+            color: #fafafa; /* Adjust to your preferred text color */
+            font-family: 'Inconsolata', monospace;
+        }
+
+        .footer div {
+            padding: 1rem;
+        }
+
+        .footer a {
+            color: #fafafa; /* Adjust to your preferred link color */
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            color: #a0a0a0; /* Adjust to your preferred hover color */
+        }
+
+        .footer h2, .footer p, .footer li {
+            margin: 0.5rem 0; /* Adjusts vertical spacing between elements */
+        }
+
+        .footer h2 {
+            font-size: 1.2rem;
+            text-transform: uppercase;
+        }
+
+        .footer ul {
+            list-style-type: none;
+            padding-left: 0;
+            display: flex;
+            flex-direction: column;
+            align-content: flex-start;
+            align-items: flex-start;
+            gap: 0;
+            line-height: 0.5rem;
+        }
+
+        .footer ul li {
+            padding: 0.3rem 0;
+        }
+
+        @media (min-width: 769px) {
+            .Navbar .hamburger {
+                display: none;
+            }
+
+            input#navbar-toggle {
+                display: none;
+            }
+        }
+
+        @media (max-width: 600px) {
+        .footer {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+        /* CSS for table at 768px */
+        @media (max-width: 768px) {
+        .h1class {
+            width: 95%;
+            line-height: 5vh;
+            word-wrap: break-word;|
+        }
+
+        .bodytexty {
+            line-height: 1.5rem;
+            max-width: 95vw;
+        }
+
+        .h1big {
+            width: 75vw;
+            line-height: 7vh;
+            word-wrap: break-word;
+            font-size: 36px;
+            margin: 0;
+        }
+        
+        .footer p, .footer li {
+            margin: 0.5rem 0;
+            text-align: left;
+            line-height: 1.5;
+        }
+        
+        .footer h2 {
+            text-align: left;
+        }
+
+        .footer ul li {
+            padding: 0;
+        }
+
+        .footer {
+            padding: 0;
+        }
+
+        table {
+            display: block;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 2rem;
+            white-space: nowrap;
+        }
+
+        td {
+            align-content: center;
+        }
+
+        th {
+            color: #121212;
+            padding-bottom: 1.5rem;
+        }
+
+        table img {
+            width: 20px; /* Adjust as needed */
+            height: 20px; /* Adjust as needed */
+            margin-right: 5px;
+            align-content: center;
+            border-radius: 900px;
+        }
+        .Navbar ul {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+        .Navbar ul {
+            display: none;
+        }
+        
+        .Navbar input[type="checkbox"] {
+            display: none;
+        }
+        
+        .Navbar label.hamburger {
+            display: block;
+            cursor: pointer;
+            font-size: 1.5rem;
+            padding: 0.5rem;
+            color: #121212;
+        }
+        
+        .Navbar label.hamburger:hover {
+            color: #5d1180;
+        }
+        
+        .Navbar #navbar-toggle:checked ~ ul {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding-left: 1rem;
+        }
+        
+        .Navbar .signupbtn {
+            margin-top: 1rem;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="Navbar">
+          <input type="checkbox" id="navbar-toggle" />
+          <label for="navbar-toggle" class="hamburger">&#9776;</label>
+          <ul>
+            <li class="home">
+              LOVSKI
+            </li>
+            <li>
+              Jobs
+            </li>
+            <li>
+              Services
+            </li>
+            <li>
+              About Us
+            </li>
+            <li class="signupbtn">
+              Sign Up
+            </li>
+          </ul>
+        </div>
+    </header>
+    <section class="hero">
+        <img src="https://images.pexels.com/photos/5325074/pexels-photo-5325074.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Hero image"/>
+        <h2 class="herotext">LOVSKI: Transparent & No-Nonsense Tech Job Listing Service</h2>
+    </section>
+    </section>
+    <section class="mainbody">
+        <div class="textwrapper">
+            <h1 class="h1class">Finding Tech Jobs that's transparent about its Salary is tough. Good Thing We're Here</h1>
+            <p class="bodytexty">We know the drill: you're hunting for that dream tech gig, but the mystery of the 'salary package' feels like you're stuck in a never-ending escape room. Isn't it a bummer when the pay doesn't quite match up to the job hype?</p>
+            <p class="bodytexty">Well, we're here to flip the script.</p>
+        </div>
+        <br>
+        <hr class="dividersolid">
+        <div class="textwrapper">
+            <h1>Job Listings @ LOVSKI</h1>
+            <table>
+                <tr>
+                    <th>Project</th>
+                    <th>Position</th>
+                    <th>Salary</th>
+                    <th>Type</th>
+                    <th>Posted</th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td class="tablelink"><img src="https://images.rawpixel.com/image_png_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdjEwNDktMjIucG5n.png" alt="5Times" />Fivenity ↗</td>
+                    <td class="tablelink">Sr. Front-end Engineer</td>
+                    <td>Start from $250000/yr</td>
+                    <td>Full-time (Remote)</td>
+                    <td>1 month ago</td>
+                    <td><a href="">Apply Now</a></td>
+                </tr>
+                <tr>
+                    <td class="tablelink"><img src="https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdjk4Ny0yNWFfMS1rczVycW8wYi5qcGc.jpg" alt="CoralBlu logo" />lonaLisa ↗</td>
+                    <td class="tablelink">Product Manager</td>
+                    <td>$140000-1600000/yr</td>
+                    <td>Full-time (Remote)</td>
+                    <td>1 month ago</td>
+                    <td><a href="">Apply Now</a></td>
+                </tr>
+                <tr>
+                    <td class="tablelink"><img src="https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdjk4Ny0yNWFfMS1rczVycW8wYi5qcGc.jpg" alt="CoralBlu logo" />lonaLisa ↗</td>
+                    <td class="tablelink">Sr. UX Engineer</td>
+                    <td>$115000-$120000/yr</td>
+                    <td>Full-time (Remote)</td>
+                    <td>1 month ago</td>
+                    <td><a href="">Apply Now</a></td>
+                </tr>
+                <tr>
+                    <td class="tablelink"><img src="https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdjU0MS1hdW0tMTEtYi1iYWRnZXNfMS5qcGc.jpg" alt="CoralBlu logo" />FlowerY ↗</td>
+                    <td class="tablelink">UX Designer</td>
+                    <td>$85000-$100000/yr</td>
+                    <td>Full-time (Remote)</td>
+                    <td>1 month ago</td>
+                    <td><a href="">Apply Now</a></td>
+                </tr>
+                <tr>
+                    <td class="tablelink"><img src="https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvczQ1OC13YW4tMTFfMS5qcGc.jpg" alt="CoralBlu logo" />SummerSide Hotel ↗</td>
+                    <td class="tablelink">Front-end Engineer</td>
+                    <td>$115000-$140000/yr</td>
+                    <td>Full-time (Remote)</td>
+                    <td>1 month ago</td>
+                    <td><a href="">Apply Now</a></td>
+                </tr>
+                <tr>
+                    <td class="tablelink"><img src="https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvczQ1OC13YW4tMTFfMS5qcGc.jpg" alt="CoralBlu logo" />SummerSide Hotel ↗</td>
+                    <td class="tablelink">Back-end Engineer</td>
+                    <td>$125000-$130000/yr</td>
+                    <td>Full-time (Remote)</td>
+                    <td>1 month ago</td>
+                    <td><a href="">Apply Now</a></td>
+                </tr>
+                <tr>
+                    <td class="tablelink"><img src="https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdjkzNy1hZXctMTQzLWtsaGN3NDRuLmpwZw.jpg" alt="CoralBlu logo" />Zoonicorn VC ↗</td>
+                    <td class="tablelink">Back-end Engineer</td>
+                    <td>$125000-$130000/yr</td>
+                    <td>Full-time (Remote)</td>
+                    <td>1 month ago</td>
+                    <td><a href="">Apply Now</a></td>
+                </tr>
+                <tr>
+                    <td class="tablelink"><img src="https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdjkzNy1hZXctMTQzLWtsaGN3NDRuLmpwZw.jpg" alt="CoralBlu logo" /> Zoonicorn VC ↗</td>
+                    <td class="tablelink">Back-end Engineer</td>
+                    <td>$125000-$130000/yr</td>
+                    <td>Full-time (Remote)</td>
+                    <td>1 month ago</td>
+                    <td><a href="">Apply Now</a></td>
+                </tr>
+                <tr>
+                    <td class="tablelink"><img src="https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdjU0MS1hdW0tMTEtYi1iYWRnZXNfMS5qcGc.jpg" alt="CoralBlu logo" /> Flowery ↗</td>
+                    <td class="tablelink">UX Designer</td>
+                    <td>$85000-$100000/yr</td>
+                    <td>Full-time (Remote)</td>
+                    <td>1 month ago</td>
+                    <td><a href="">Apply Now</a></td>
+                </tr>
+                <tr>
+                    <td class="tablelink"><img src="https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcm04NC1qai0xMC1iXzEuanBn.jpg" alt="CoralBlu logo" /> Estate 68 ↗</td>
+                    <td class="tablelink">Front-end Engineer</td>
+                    <td>$115000-$140000/yr</td>
+                    <td>Full-time (Remote)</td>
+                    <td>1 month ago</td>
+                    <td><a href="">Apply Now</a></td>
+                </tr>
+                <tr>
+                    <td class="tablelink"><img src="https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcm04NC1qai0xMC1iXzEuanBn.jpg" alt="CoralBlu logo" /> Estate 68 ↗</td>
+                    <td class="tablelink">Back-end Engineer</td>
+                    <td>$125000-$130000/yr</td>
+                    <td>Full-time (Remote)</td>
+                    <td>1 month ago</td>
+                    <td><a href="">Apply Now</a></td>
+                </tr>
+                <tr>
+                    <td class="tablelink"><img src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA3L3Y5MTQtbmluZy0xNl8yLmpwZw.jpg" alt="CoralBlu logo" /> Bali Adem ↗</td>
+                    <td class="tablelink">Back-end Engineer</td>
+                    <td>$125000-$130000/yr</td>
+                    <td>Full-time (Remote)</td>
+                    <td>1 month ago</td>
+                    <td><a href="">Apply Now</a></td>
+                </tr>
+                <tr>
+                    <td class="tablelink"><img src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA1L3Y5MTQtbmluZy0yNWEuanBn.jpg" alt="CoralBlu logo" /> Mojafarm ↗</td>
+                    <td class="tablelink">Back-end Engineer</td>
+                    <td>$125000-$130000/yr</td>
+                    <td>Full-time (Remote)</td>
+                    <td>1 month ago</td>
+                    <td><a href="">Apply Now</a></td>
+                </tr>
+                <tr>
+                    <td class="tablelink"><img src="https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdjkxNC1uaW5nLTQwXzEuanBn.jpg" alt="CoralBlu logo" /> Next.Bio ↗</td>
+                    <td class="tablelink">Back-end Engineer</td>
+                    <td>$125000-$130000/yr</td>
+                    <td>Full-time (Remote)</td>
+                    <td>1 month ago</td>
+                    <td><a href="">Apply Now</a></td>
+                </tr>
+                <tr>
+                    <td class="tablelink"><img src="https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdjkxNC1uaW5nLTQwXzEuanBn.jpg" alt="CoralBlu logo" /> Next.Bio ↗</td>
+                    <td class="tablelink">Back-end Engineer</td>
+                    <td>$125000-$130000/yr</td>
+                    <td>Full-time (Remote)</td>
+                    <td>1 month ago</td>
+                    <td><a href="">Apply Now</a></td>
+                </tr>
+                <tr>
+                    <td class="tablelink"><img src="https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdjkxNC1uaW5nLTQwXzEuanBn.jpg" alt="CoralBlu logo" /> Next.Bio ↗</td>
+                    <td class="tablelink">Back-end Engineer</td>
+                    <td>$125000-$130000/yr</td>
+                    <td>Full-time (Remote)</td>
+                    <td>1 month ago</td>
+                    <td><a href="">Apply Now</a></td>
+                </tr>
+                <tr>
+                    <td class="tablelink"><img src="https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdjkxNC1uaW5nLTQwXzEuanBn.jpg" alt="CoralBlu logo" /> Next.Bio ↗</td>
+                    <td class="tablelink">Back-end Engineer</td>
+                    <td>$125000-$130000/yr</td>
+                    <td>Full-time (Remote)</td>
+                    <td>1 month ago</td>
+                    <td><a href="">Apply Now</a></td>
+                </tr>
+                <tr>
+                    <td class="tablelink"><img src="https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdjExMDktbG9nby0wNV8xLWt3bjB6ZjFlLmpwZw.jpg" alt="CoralBlu logo" /> Serene Code ↗</td>
+                    <td class="tablelink">Back-end Engineer</td>
+                    <td>$125000-$130000/yr</td>
+                    <td>Full-time (Remote)</td>
+                    <td>1 month ago</td>
+                    <td><a href="">Apply Now</a></td>
+                </tr>
+                <tr>
+                    <td class="tablelink"><img src=https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdjExMDktbG9nby0wNV8xLWt3bjB6ZjFlLmpwZw.jpg" alt="CoralBlu logo" /> Serene Code ↗</td>
+                    <td class="tablelink">Back-end Engineer</td>
+                    <td>$125000-$130000/yr</td>
+                    <td>Full-time (Remote)</td>
+                    <td>1 month ago</td>
+                    <td><a href="">Apply Now</a></td>
+                </tr>
+            </table>
+            <br>
+            <br>
+        </div>
+        <section class="mainbody-special">
+            <div class="textwrapper">
+                <p>Partnership</p>
+                <h1 class="h1big">LOVSKI for Recruiters</h1>
+                <p class="bodytexty">Want to score the best talent while busting the old tradition of hidden salaries? Time to sync up with LOVSKI. We're pioneering a more transparent, fair, and future-forward way of hiring. Ready to reinvent the rules with us?</p>
+                <button class="primarycta">Sign-up As A Recruiter</button>
+                <br>
+                <br>
+            </div>
+        </section>                
+    </section>
+    <footer class="footer">
+        <div class="left">
+            <p>LOVSKI is a Job Posting Service focusing on transparent salary information and remote works. Since 2020, LOVSKI has helped 250,000 talents and over 80 companies worldwide.</p>
+        </div>
+        <div class="center">
+            <h2>LOVSKI Services</h2>
+            <ul>
+                <li><a href="#">LOVSKI for Recruiters</a></li>
+                <li><a href="#">LOVSKI for Jobseekers</a></li>
+                <li><a href="#">LOVSKI Classes</a></li>
+            </ul>
+        </div>
+        <div class="right">
+            <h2>About LOVSKI</h2>
+            <ul>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Career @ LOVSKI</a></li>
+            </ul>
+        </div>
+    </footer>    
+</body>
+</html>
+
+
